@@ -4,7 +4,7 @@
 
 Spec2Proof helps a product owner and developer agree on what “fixed” means. Start with a refund requirement, inspect ten acceptance criteria, run them against deliberately buggy Python, review a two-line repair, approve it, and rerun the **same tests**. Export a receipt that another person can reproduce.
 
-Built as a three-hour community hackathon MVP for October 10, 2026. No API key, paid service, package installation, or deployment is needed for the core demo.
+No API key, paid service, package installation, or deployment is needed for the core demo.
 
 [![Watch the Spec2Proof demo on YouTube](https://img.youtube.com/vi/0B9h28LI0qk/maxresdefault.jpg)](https://www.youtube.com/watch?v=0B9h28LI0qk)
 
@@ -49,11 +49,11 @@ Rejecting the patch preserves the original code. Refreshing the proof URL restor
 | Failure-linked diagnosis and minimal diff | Two seeded defects with a known template repair |
 | Approval tied to patch, source, and test hashes | Local reviewer action, **not authenticated identity or legal attestation** |
 | Exported source, tests, logs, approval, checksums | Evidence shows these checks passed, not universal correctness |
-| Working private ChatGPT plugin and proof workbench, confirmed by the builder | Each tester needs their own account/tunnel setup; no public plugin listing |
+| Private ChatGPT plugin and proof workbench via MCP | Each tester needs their own account/tunnel setup; no public plugin listing |
 
 The standalone demo does not call a model. In the plugin path, ChatGPT provides the conversational layer and invokes constrained tools; execution and evidence stay deterministic. No mock test outcomes or fabricated AI responses are used.
 
-## DevDay capability: a proof workbench beside ChatGPT
+## ChatGPT plugin: a proof workbench beside ChatGPT
 
 The MCP adapter exposes `open_spec2proof`, `create_proof`, `run_baseline`, `propose_patch`, and `get_proof`. Its MCP App resource declares **global sidebar** and **thread conversation-panel** entrypoints using the official OpenAI extension metadata.
 
@@ -63,9 +63,9 @@ The panel uses MCP Apps tool calls and displays the same evidence UI as the loca
 python -m spec2proof.mcp_server --data-dir /absolute/path/to/shared-proof-data
 ```
 
-Run the browser server with that same `--data-dir`. See [plugin setup](docs/PLUGIN_SETUP.md), [official-documentation decision](docs/DEVDay_DECISION.md), and [demo recording instructions](docs/DEMO.md).
+Run the browser server with that same `--data-dir`. See [plugin setup](docs/PLUGIN_SETUP.md) and [demo recording instructions](docs/DEMO.md).
 
-**Integration status:** the builder has connected the private plugin through Secure MCP Tunnel and confirmed that the ChatGPT workbench works. Local tool dispatch, extension metadata, and UI resource tests also pass. The plugin is privately installed, not published in a public directory. Judges can run the standalone app immediately; reproducing the ChatGPT integration requires their own Platform tunnel permissions and ChatGPT custom-plugin access.
+**Integration status:** the private plugin works through Secure MCP Tunnel, and local tool dispatch, extension metadata, and UI resource tests pass. It is not published in a public directory. The standalone app runs immediately; reproducing the ChatGPT integration requires your own Platform tunnel permissions and ChatGPT custom-plugin access.
 
 ### Review and approve from the plugin
 
@@ -109,7 +109,7 @@ The server listens only on loopback, checks Host/Origin and a per-session token,
 
 Local verification: **23 tests passed** on Windows/Python 3.12.14; the browser flow, approval gate, evidence download, reload, and 390px layout passed with no browser errors. See [test report](docs/test-report.json) and [browser QA record](docs/demo/verification.json). The included recording is an actual run of the local app.
 
-The standard-library suite covers real execution, multiple day windows, state transitions, rejection, missing/stale/duplicate approval, concurrent approval, tamper detection, archive replay, local API controls, MCP metadata, and an actual stdio subprocess handshake. GitHub Actions is configured for Python 3.10/3.12 on Windows/Linux; the hosted matrix runs after publication.
+The standard-library suite covers real execution, multiple day windows, state transitions, rejection, missing/stale/duplicate approval, concurrent approval, tamper detection, archive replay, local API controls, MCP metadata, and an actual stdio subprocess handshake. GitHub Actions is configured for Python 3.10/3.12 on Windows/Linux.
 
 Optional browser validation/recording:
 
@@ -120,11 +120,5 @@ node scripts/browser-demo.cjs
 ```
 
 Start the app first. The script records an actual browser run, captures screenshots, verifies mobile overflow and reload persistence, and downloads a sample receipt. Its approval click is an **automated QA action on a demo fixture**, not an actual user's sign-off.
-
-## Submission and publication
-
-Use the repository and recorded demo as the hackathon submission. See [submission copy](docs/SUBMISSION.md). No remote repository, public site, tunnel, or deployment is created by running the app.
-
-Publishing requires your explicit decision and a valid GitHub login. After review, `gh repo create spec2proof --public --source . --remote origin --push` creates the public repository. **Do not run that command until you intend to publish.**
 
 MIT licensed. Independent community project; not an official OpenAI product.
