@@ -4,6 +4,8 @@ The standalone browser demo is ready without these steps. This setup is optional
 
 ## 1. Start the shared local store
 
+For this checkout, run `scripts/plugin_preflight.py` with the selected Python interpreter first. It verifies discovery from another working directory and generates an absolute-path `.local/mcp.local.json`. That file is ignored by Git. The launcher `scripts/mcp_entry.py` does not require installing the package and defaults to this checkout's absolute `.spec2proof` directory. Use its generated command for the tunnel so the local browser and MCP process share evidence.
+
 Install the project into your chosen Python environment if the MCP process will start outside the checkout:
 
 ```sh
@@ -41,3 +43,4 @@ If the host blocks navigation to localhost, copy that URL into a normal browser.
 Negative tests: partial refunds or fees must prompt clarification; approval requests must direct the user to local review; missing confirmation must fail. Tool/resource refresh may be needed after changes.
 
 The adapter implements initialize, ping, tools/list, tools/call, resources/list, resources/read, and ignores notifications. It does not expose streamable HTTP, OAuth, subscriptions, prompts, or an arbitrary-code tool. A public, multi-user service would need a fuller transport/authentication design.
+

@@ -6,9 +6,11 @@ Spec2Proof helps a product owner and developer agree on what “fixed” means. 
 
 Built as a three-hour community hackathon MVP for October 10, 2026. No API key, paid service, package installation, or deployment is needed for the core demo.
 
+[![Watch the Spec2Proof demo on YouTube](https://img.youtube.com/vi/0B9h28LI0qk/maxresdefault.jpg)](https://www.youtube.com/watch?v=0B9h28LI0qk)
+
 ![Spec2Proof shows real failures, a reviewed diff, and passing evidence](docs/demo/04-proof.png)
 
-[Watch the recorded browser demo](docs/demo/spec2proof-demo.webm) · [Download a sample evidence receipt](docs/demo/sample-proof.zip) · [Recording and narration guide](docs/DEMO.md)
+[Short browser recording](docs/demo/spec2proof-demo.webm) · [Download a sample evidence receipt](docs/demo/sample-proof.zip) · [Recording and narration guide](docs/DEMO.md)
 
 ## Run in 30 seconds
 
@@ -19,8 +21,6 @@ python -m spec2proof.server
 ```
 
 Open **http://127.0.0.1:8765**. On Windows, `py -3 -m spec2proof.server` also works when the Python launcher is configured. Stop with Ctrl+C. A different port is available with `--port 8766`.
-
-For this Codex desktop environment, `powershell -ExecutionPolicy Bypass -File .\start.ps1` finds the bundled Python automatically. It starts only the local server and does not change the machine's execution policy.
 
 ```sh
 python -m unittest discover -s tests -v
@@ -49,7 +49,7 @@ Rejecting the patch preserves the original code. Refreshing the proof URL restor
 | Failure-linked diagnosis and minimal diff | Two seeded defects with a known template repair |
 | Approval tied to patch, source, and test hashes | Local reviewer action, **not authenticated identity or legal attestation** |
 | Exported source, tests, logs, approval, checksums | Evidence shows these checks passed, not universal correctness |
-| MCP tools + sidebar/conversation-panel extension metadata | Host installation and rendering in ChatGPT still need account/tunnel setup |
+| Working private ChatGPT plugin and proof workbench, confirmed by the builder | Each tester needs their own account/tunnel setup; no public plugin listing |
 
 The standalone demo does not call a model. In the plugin path, ChatGPT provides the conversational layer and invokes constrained tools; execution and evidence stay deterministic. No mock test outcomes or fabricated AI responses are used.
 
@@ -65,7 +65,19 @@ python -m spec2proof.mcp_server --data-dir /absolute/path/to/shared-proof-data
 
 Run the browser server with that same `--data-dir`. See [plugin setup](docs/PLUGIN_SETUP.md), [official-documentation decision](docs/DEVDay_DECISION.md), and [demo recording instructions](docs/DEMO.md).
 
-**Integration status:** local tool dispatch, extension metadata, and UI resource tests pass. This repository does not claim a registered or published ChatGPT plugin. Account access, a private tunnel, and a host-side acceptance check remain required.
+**Integration status:** the builder has connected the private plugin through Secure MCP Tunnel and confirmed that the ChatGPT workbench works. Local tool dispatch, extension metadata, and UI resource tests also pass. The plugin is privately installed, not published in a public directory. Judges can run the standalone app immediately; reproducing the ChatGPT integration requires their own Platform tunnel permissions and ChatGPT custom-plugin access.
+
+### Review and approve from the plugin
+
+Keep the tunnel client running and start the local browser server in a second terminal with `./start.ps1` (Windows) or `python -m spec2proof.server`. Both processes must use the same absolute proof-data directory. The plugin's **Open local review** link opens the saved proof directly at its patch section:
+
+```text
+http://127.0.0.1:8765/?proof=<proof-id>&view=approval#patch-card
+```
+
+Review the diff, tick the approval checkbox, and select **Approve patch & rerun tests**. The URL reflects the persisted state with `state=awaiting_approval` or `state=verified`; changing URL text cannot grant approval. Return to ChatGPT and select **Refresh proof after approval**. If the host blocks opening a loopback link, paste it into your browser on the same computer.
+
+For Windows tunnel setup, use [the preflight launcher and setup guide](docs/PLUGIN_SETUP.md). MCP command paths must use forward slashes and quoted arguments so the tunnel command parser preserves Windows paths. The runtime credential is a Platform secret API key with the required organization-level tunnel access, separate from the `tunnel_…` ID. Never commit keys, tunnel configuration, or local proof state.
 
 ## Architecture
 

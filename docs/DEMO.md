@@ -12,7 +12,13 @@
 
 **60–75 sec:** Tick approval and rerun. “Now all ten checks pass against the reviewed code, with the same test hash.”
 
-**75–90 sec:** Download evidence. “The receipt includes code, tests, failure logs, the approval record, and reproducible results. The DevDay plugin adapter puts this workbench beside ChatGPT; its host installation is a separate account setup step.”
+**75–90 sec:** Download evidence. “The receipt includes code, tests, failure logs, the approval record, and reproducible results. Our working private ChatGPT plugin puts this workbench beside the conversation. Human approval takes place in the local browser, then ChatGPT can retrieve the updated proof.”
+
+## Current recording
+
+`docs/demo/spec2proof-demo.webm` records the real local workbench workflow, including opening a direct approval URL, restoring the pending patch, explicit review, rerunning frozen tests, exporting evidence, and reloading the verified proof. It has no voiceover and does not record the ChatGPT host or imply that the private plugin is publicly installable.
+
+For an additional plugin clip, open Spec2Proof in ChatGPT, create a proof and run the baseline, propose the patch, select **Open local review**, approve in the local browser, then return to ChatGPT and select **Refresh proof after approval**. Hide account information and never record API keys or tunnel configuration.
 
 ## Record manually
 

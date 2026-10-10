@@ -57,8 +57,12 @@ class Adapter:
                 raise ValueError("User confirmation of the contract is required")
             return self.store.run(args["proof_id"])
         if name == "propose_patch":
-            return self.store.propose(args["proof_id"])
-        return self.store.get(args["proof_id"])
+            value = self.store.propose(args["proof_id"])
+        else:
+            value = self.store.get(args["proof_id"])
+        value["review_url"] = f"http://127.0.0.1:8765/?proof={value['id']}&view=approval#patch-card"
+        value["review_instructions"] = "Keep start.ps1 running on this computer, open review_url in your browser, review the diff, check the approval box, then select Approve patch & rerun tests. Refresh the plugin proof afterward."
+        return value
 
     def dispatch(self, request):
         request_id = request.get("id")
