@@ -1,10 +1,12 @@
 # Spec2Proof
 
-**Business intent → executable tests → reviewed repair → reproducible evidence.**
+**A ChatGPT Plugin for Reviewed Repairs and Executable Proof**
+
+Business intent → executable tests → reviewed repair → reproducible evidence.
 
 Spec2Proof helps a product owner and a developer agree on what “fixed” means. Start with a refund requirement, inspect ten acceptance criteria, run them against deliberately buggy Python, review a two-line repair, approve it, and rerun the **same tests**. Export a receipt that another person can reproduce.
 
-No API key, paid service, package installation, or deployment is needed for the core demo. The project also ships as a private ChatGPT plugin (an MCP App) that opens the same proof workbench beside a conversation.
+No API key, paid service, package installation, or deployment is needed for the core demo. Spec2Proof is a **ChatGPT plugin** (an MCP App) that opens this proof workbench in the ChatGPT sidebar or beside a conversation; the same workbench also runs standalone in a local browser. It was developed using **OpenAI Codex**.
 
 ## Demo video
 
@@ -137,4 +139,4 @@ node scripts/browser-demo.cjs
 
 Start the app first. The script records an actual browser run, captures screenshots, verifies mobile overflow and reload persistence, and downloads a sample receipt. Its approval click is an **automated QA action on a demo fixture**, not an actual user's sign-off.
 
-MIT licensed. Independent community project; not an official OpenAI product.
+MIT licensed. Developed using OpenAI Codex. Independent community project; not an official OpenAI product.
