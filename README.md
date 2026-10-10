@@ -2,15 +2,29 @@
 
 **Business intent → executable tests → reviewed repair → reproducible evidence.**
 
-Spec2Proof helps a product owner and developer agree on what “fixed” means. Start with a refund requirement, inspect ten acceptance criteria, run them against deliberately buggy Python, review a two-line repair, approve it, and rerun the **same tests**. Export a receipt that another person can reproduce.
+Spec2Proof helps a product owner and a developer agree on what “fixed” means. Start with a refund requirement, inspect ten acceptance criteria, run them against deliberately buggy Python, review a two-line repair, approve it, and rerun the **same tests**. Export a receipt that another person can reproduce.
 
-No API key, paid service, package installation, or deployment is needed for the core demo.
+No API key, paid service, package installation, or deployment is needed for the core demo. The project also ships as a private ChatGPT plugin (an MCP App) that opens the same proof workbench beside a conversation.
+
+## Demo video
+
+▶️ **Demo link: https://www.youtube.com/watch?v=0B9h28LI0qk**
 
 [![Watch the Spec2Proof demo on YouTube](https://img.youtube.com/vi/0B9h28LI0qk/maxresdefault.jpg)](https://www.youtube.com/watch?v=0B9h28LI0qk)
 
+The video walks through the full flow described in [The two-minute demo](#the-two-minute-demo): requirement → 8/10 passing → reviewed patch → human approval → 10/10 passing → downloadable evidence.
+
+Other demo material:
+
+- [Short browser recording](docs/demo/spec2proof-demo.webm) of an actual run of the local app
+- [Sample evidence receipt](docs/demo/sample-proof.zip) (the exported `.zip`)
+- [Recording and narration guide](docs/DEMO.md)
+
 ![Spec2Proof shows real failures, a reviewed diff, and passing evidence](docs/demo/04-proof.png)
 
-[Short browser recording](docs/demo/spec2proof-demo.webm) · [Download a sample evidence receipt](docs/demo/sample-proof.zip) · [Recording and narration guide](docs/DEMO.md)
+## Contents
+
+[Run in 30 seconds](#run-in-30-seconds) · [The two-minute demo](#the-two-minute-demo) · [What is real, and what is bounded?](#what-is-real-and-what-is-bounded) · [ChatGPT plugin](#chatgpt-plugin-a-proof-workbench-beside-chatgpt) · [Architecture](#architecture) · [Evidence and trust](#evidence-and-trust) · [Testing](#testing)
 
 ## Run in 30 seconds
 
@@ -21,6 +35,8 @@ python -m spec2proof.server
 ```
 
 Open **http://127.0.0.1:8765**. On Windows, `py -3 -m spec2proof.server` also works when the Python launcher is configured. Stop with Ctrl+C. A different port is available with `--port 8766`.
+
+Run the test suite:
 
 ```sh
 python -m unittest discover -s tests -v
