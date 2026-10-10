@@ -79,7 +79,7 @@ The panel uses MCP Apps tool calls and displays the same evidence UI as the loca
 python -m spec2proof.mcp_server --data-dir /absolute/path/to/shared-proof-data
 ```
 
-Run the browser server with that same `--data-dir`. See [plugin setup](docs/PLUGIN_SETUP.md) and [demo recording instructions](docs/DEMO.md).
+Run the browser server with that same `--data-dir`. See [plugin setup](docs/PLUGIN_SETUP.md), [plugin design notes](docs/PLUGIN_DESIGN.md), and [demo recording instructions](docs/DEMO.md).
 
 **Integration status:** the private plugin works through Secure MCP Tunnel, and local tool dispatch, extension metadata, and UI resource tests pass. It is not published in a public directory. The standalone app runs immediately; reproducing the ChatGPT integration requires your own Platform tunnel permissions and ChatGPT custom-plugin access.
 

@@ -22,7 +22,7 @@ For an additional plugin clip, open Spec2Proof in ChatGPT, create a proof and ru
 
 ## Record manually
 
-Start `python -m spec2proof.server`, open the local page, and use your OS screen recorder or a browser recorder. Show the complete flow above, including the approval checkbox. Keep the cursor still while explaining the diff. Export as MP4/WebM, and attach to the public repository README or submission when publication is authorized. No real business data is needed.
+Start `python -m spec2proof.server`, open the local page, and use your OS screen recorder or a browser recorder. Show the complete flow above, including the approval checkbox. Keep the cursor still while explaining the diff. Export as MP4/WebM and link it from the README. No real business data is needed.
 
 ## Generate an automated recording
 

@@ -1,4 +1,4 @@
-"""Dependency-free MCP stdio adapter for the bounded local hackathon demo.
+"""Dependency-free MCP stdio adapter for the bounded local demo.
 
 Supports initialize, ping, tools/list+call, resources/list+read. No approval tool:
 only the local browser can submit the review action. Use a private Secure MCP
