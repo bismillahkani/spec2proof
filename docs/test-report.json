@@ -1,0 +1,13 @@
+{
+  "verified_at": "2026-10-10T05:32:02.215498+00:00",
+  "python": "3.12.14",
+  "os": "Windows",
+  "command": "python -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_bad_host_and_invalid_json_object (test_http.HttpTests.test_bad_host_and_invalid_json_object) ... ok\ntest_confirmation_required (test_http.HttpTests.test_confirmation_required) ... ok\ntest_csrf_rejected (test_http.HttpTests.test_csrf_rejected) ... ok\ntest_http_complete_workflow (test_http.HttpTests.test_http_complete_workflow) ... ok\ntest_actual_stdio_transport (test_workflow.WorkflowTests.test_actual_stdio_transport) ... ok\ntest_alternate_window (test_workflow.WorkflowTests.test_alternate_window) ... ok\ntest_audit_chain (test_workflow.WorkflowTests.test_audit_chain) ... ok\ntest_concurrent_approval_only_applies_once (test_workflow.WorkflowTests.test_concurrent_approval_only_applies_once) ... ok\ntest_duplicate_approval (test_workflow.WorkflowTests.test_duplicate_approval) ... ok\ntest_end_to_end_real_python_and_frozen_tests (test_workflow.WorkflowTests.test_end_to_end_real_python_and_frozen_tests) ... ok\ntest_evidence_bundle_hashes_and_reproducibility (test_workflow.WorkflowTests.test_evidence_bundle_hashes_and_reproducibility) ... ok\ntest_invalid_requirements (test_workflow.WorkflowTests.test_invalid_requirements) ... ok\ntest_invalid_transition (test_workflow.WorkflowTests.test_invalid_transition) ... ok\ntest_mcp_protocol_and_extension_metadata (test_workflow.WorkflowTests.test_mcp_protocol_and_extension_metadata) ... ok\ntest_mcp_rejects_extra_code_arguments (test_workflow.WorkflowTests.test_mcp_rejects_extra_code_arguments) ... ok\ntest_missing_approval_does_not_apply (test_workflow.WorkflowTests.test_missing_approval_does_not_apply) ... ok\ntest_path_traversal (test_workflow.WorkflowTests.test_path_traversal) ... ok\ntest_pending_bundle_has_no_applied_code (test_workflow.WorkflowTests.test_pending_bundle_has_no_applied_code) ... ok\ntest_rejection_preserves_original (test_workflow.WorkflowTests.test_rejection_preserves_original) ... ok\ntest_stale_hash_rejected (test_workflow.WorkflowTests.test_stale_hash_rejected) ... ok\ntest_tampered_patch_rejected (test_workflow.WorkflowTests.test_tampered_patch_rejected) ... ok\ntest_tampered_tests_rejected (test_workflow.WorkflowTests.test_tampered_tests_rejected) ... ok\ntest_tampering_between_baseline_and_proposal_rejected (test_workflow.WorkflowTests.test_tampering_between_baseline_and_proposal_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 5.248s\n\nOK\n",
+  "limits": [
+    "GitHub Actions matrix has not run yet",
+    "No live ChatGPT host installation or tunnel verified"
+  ]
+}

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spec2proof"
+version = "0.1.0"
+description = "Turn refund requirements into reproducible, reviewer-approved test evidence."
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+spec2proof = "spec2proof.server:main"
+spec2proof-mcp = "spec2proof.mcp_server:main"
+
+[tool.setuptools.package-data]
+spec2proof = ["web/*.html"]

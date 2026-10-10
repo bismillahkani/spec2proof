@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "spec2proof": {
+      "command": "python",
+      "args": ["-m", "spec2proof.mcp_server", "--data-dir", "REPLACE_WITH_ABSOLUTE_SHARED_DATA_DIRECTORY"]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "spec2proof",
+  "version": "0.1.0",
+  "description": "Turn refund policies into executable acceptance evidence, with explicit local review before repairs.",
+  "license": "MIT",
+  "keywords": ["testing", "acceptance-criteria", "proof", "developer-tools"]
+}

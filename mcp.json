@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "spec2proof": {
+      "command": "python",
+      "args": ["-m", "spec2proof.mcp_server"]
+    }
+  }
+}

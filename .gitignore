@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.spec2proof/
+.venv/
+node_modules/
+.browser-cache/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.DS_Store
+*.log
+docs/demo/*-raw.webm

@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-10T05:31:10.665Z",
+  "proof_id": "4950ba9673c942619223b6e60cb023ac",
+  "checks": [
+    "create",
+    "confirm contract",
+    "real baseline",
+    "propose",
+    "approval disabled before review",
+    "approve and rerun",
+    "download ZIP",
+    "reload persistence",
+    "390px viewport without overflow"
+  ],
+  "browser_errors": [],
+  "approval_actor": "automated QA acting as reviewer; demo only"
+}
